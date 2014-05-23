@@ -26,3 +26,4 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 [Nn]ode_[Mm]odules/
+.idea/
