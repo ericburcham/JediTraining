@@ -11,6 +11,8 @@ describe("When using the constructor invocation pattern", function(){
 
   it("should return a new object", function(){
       expect(new ThisConstructor()).not.toBe(null);
+      var fooType = typeof foo
+      expect(fooType).toBe("undefined");
   });
   
   it("Should polute the global namespace if called without the new keyword", function(){
