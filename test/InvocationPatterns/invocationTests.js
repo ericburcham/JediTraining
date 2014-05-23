@@ -27,7 +27,6 @@ describe("When using the constructor invocation pattern", function(){
 });
 
 describe("When using the method invocation pattern", function(){ 
-  
   var ThisConstructor = function(){
     this.fooTwo = "What We want";
     this.foo = function(){
@@ -36,7 +35,25 @@ describe("When using the method invocation pattern", function(){
   }
   this.fooTwo = "Not What We Want";
   var target = new ThisConstructor();
+
   it("should scope this to the defined object", function() {
     expect(target.foo()).toBe("What We want");
   });
+});
+
+describe("When using bind", function(){
+    var ThisConstructor = function(){
+        this.fooTwo = "What We want";
+        this.foo = function(){
+            return this.fooTwo;
+        };
+    }
+
+    var target = new ThisConstructor();
+    var target2 = new ThisConstructor();
+    target2.fooTwo = "Something terribly wrong";
+
+    it("should only route to the bound object", function () {
+      expect(target2.foo.bind(target)()).toBe(target.foo());
+   });
 });
