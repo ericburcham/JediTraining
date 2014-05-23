@@ -27,13 +27,14 @@ describe("When using the constructor invocation pattern", function(){
 });
 
 describe("When using the method invocation pattern", function(){ 
-  this.fooTwo = "Not What We Want";
+  
   var ThisConstructor = function(){
     this.fooTwo = "What We want";
     this.foo = function(){
       return this.fooTwo;
     };
   }
+  this.fooTwo = "Not What We Want";
   var target = new ThisConstructor();
   it("should scope this to the defined object", function() {
     expect(target.foo()).toBe("What We want");
