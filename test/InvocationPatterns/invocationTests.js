@@ -33,6 +33,7 @@ describe("When using the method invocation pattern", function(){
       return this.fooTwo;
     };
   }
+
   this.fooTwo = "Not What We Want";
   var target = new ThisConstructor();
 
@@ -42,18 +43,24 @@ describe("When using the method invocation pattern", function(){
 });
 
 describe("When using bind", function(){
-    var ThisConstructor = function(){
-        this.fooTwo = "What We want";
-        this.foo = function(){
-            return this.fooTwo;
-        };
+// Define the original function.
+    var checkNumericRange = function (value) {
+        if (typeof value !== 'number')
+            return false;
+        else
+            return value >= this.minimum && value <= this.maximum;
     }
 
-    var target = new ThisConstructor();
-    var target2 = new ThisConstructor();
-    target2.fooTwo = "Something terribly wrong";
+// The range object will become the this value in the callback function.
+    var range = { minimum: 10, maximum: 20 };
+
+// Bind the checkNumericRange function.
+    var boundCheckNumericRange = checkNumericRange.bind(range);
+
+// Use the new function to check whether 12 is in the numeric range.
+    var result = boundCheckNumericRange (12);
 
     it("should only route to the bound object", function () {
-      expect(target2.foo.bind(target)()).toBe(target.foo());
+      expect(result).toBe(true);
    });
 });
