@@ -15,7 +15,7 @@ describe("When using the constructor invocation pattern", function(){
       expect(fooType).toBe("undefined");
   });
   
-  it("Should polute the global namespace if called without the new keyword", function(){
+  it("Should pollute the global namespace if called without the new keyword", function(){
     ThisConstructor();
     
     expect(foo).toBe('bar');
