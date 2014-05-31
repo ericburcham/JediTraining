@@ -27,3 +27,12 @@ UpgradeLog*.htm
 
 [Nn]ode_[Mm]odules/
 .idea/
+
+#ignore emacs tmp files
+*~
+\#*\#
+\#*
+.#*
+*.swp
+*.swo
+*.tmp
