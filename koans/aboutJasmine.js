@@ -12,8 +12,8 @@
 describe('A suite', function () {
     it('contains specs with expectations', function () {
         // Expectations are built with the expect function.
-        // It takes a value, called 'actual'.
-        // It is chained with a Matcher function, which takes the expected value.
+        // 'it' takes a value, called 'actual'.
+        // 'it' is chained with a Matcher function, which takes the expected value.
         expect(true).toBe(true);
     });
 });
