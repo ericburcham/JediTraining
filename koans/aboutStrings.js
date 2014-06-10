@@ -1,32 +1,29 @@
-/**
- * Created by Eric Burcham on 6/7/2014.
- */
+var toDo = 'abc123';
+
 describe('Given a string literal stored in a variable', function () {
     it('it should have a type of String', function () {
         var a = 'a';
-        var TODO = typeof(a);
-        expect(TODO).toBe('string');
+        expect('string').toBe(typeof(a));
     });
 });
 
-describe('Given a string of length 10', function() {
+describe('Given a string', function() {
     it('you can verify its length', function(){
         var a = "0123456789";
-        var toDo = a.length;
-        expect(toDo).toBe(10);
+        expect(10).toBe(a.length);
     });
 });
 
 describe('Given a string that actually consists of a sequence of characters', function() {
-    it('should be possible to substitute individual characters in the string by indexing into it', function() {
+    it('should not be possible to substitute individual characters in the string by indexing into it', function() {
         // In JavaScript, there is no 'char' type.  Strings are not just arrays of characters.
         // Also, strings are immutable, so you cannot just write to a string by index.
         // However, you can READ from strings by index.
-        var toDo = 'let';
-        toDo[0] = 'g';
+        var value = 'let';
+        value[0] = 'g';
 
-        expect(toDo).toBe('let');
-        expect(toDo[0]).toBe('l');
+        expect('let').toBe(value);
+        expect('l').toBe(value[0]);
     });
 });
 
@@ -34,9 +31,9 @@ describe('Given a string and an integer', function(){
    it('adding them together results in the output consisting of the value of the string and the string representation of the integer', function(){
        var a = 2;
        var b = '2';
-       var toDo = a + b;
+       var value = a + b;
 
-       expect(toDo).toBe('22');
+       expect('22').toBe(value);
    });
 });
 
@@ -46,8 +43,24 @@ describe('Given two distinct string values', function() {
         var foo = 'foo';
         var bar = 'bar';
 
-        var toDo = foo + bar;
-        expect(toDo).toBe('foobar');
+        var value = foo + bar;
+        expect('foobar').toBe(value);
+    });
+
+    it('should combine null and a string', function(){
+        var foo = null;
+        var bar = 'bar';
+        var value = foo + bar;
+
+        expect('nullbar').toBe(value); // WAT
+    });
+
+    it('should combine undefined and a string', function(){
+        var foo;
+        var bar = 'bar';
+        var value = foo + bar;
+
+        expect('undefinedbar').toBe(value); // WAT
     });
 });
 
