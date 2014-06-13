@@ -9,7 +9,7 @@ describe('Given a string literal stored in a variable', function () {
 
 describe('Given a string', function() {
     it('you can verify its length', function(){
-        var a = "0123456789";
+        var a = '0123456789';
         expect(10).toBe(a.length);
     });
 });
@@ -37,7 +37,6 @@ describe('Given a string and an integer', function(){
    });
 });
 
-// string composition via appending
 describe('Given two distinct string values', function() {
     it('should combine the two, in order, when they are added with the binary + operator', function () {
         var foo = 'foo';
@@ -64,81 +63,88 @@ describe('Given two distinct string values', function() {
     });
 });
 
-// string split operations
 describe('Given a string with a separator character in the middle', function(){
    it('should be able to split it into two or more strings', function(){
        var fooBar = 'foo,bar';
-       var toDo = fooBar.split(',');
-       var toDo1 = toDo[0],
-           toDo2 = toDo[1];
+       var values = fooBar.split(',');
+       var value1 = values[0];
+       var value2 = values[1];
 
-       expect(toDo1).toEqual('foo');
-       expect(toDo2).toEqual('bar');
+       expect('foo').toEqual(value1);
+       expect('bar').toEqual(value2);
    });
 });
 
 describe('Given a string that should be split with multiple separator tokens', function() {
     it('should be able specify a regular expression to split on', function() {
         var input = 'foo,bar;baz';
-        var toDo = input.split(/[,;]+/);
-        var toDo1 = toDo[0];
-        var toDo2 = toDo[1];
-        var toDo3 = toDo[2];
+        var values = input.split(/[,;]+/);
+        var value1 = values[0];
+        var value2 = values[1];
+        var value3 = values[2];
 
-        expect(toDo1).toEqual('foo');
-        expect(toDo2).toEqual('bar');
-        expect(toDo3).toEqual('baz');
+        expect('foo').toEqual(value1);
+        expect('bar').toEqual(value2);
+        expect('baz').toEqual(value3);
     });
 });
 
 // string join operations
 
 // string indexOf operations
-describe("Given a string whose second character is a comma", function(){
-    it("calling indexOf(comma) should return 1", function(){
-        var input = " ,";
-        var toDo = input.indexOf(',');
+describe('Given a string which contains a comma', function(){
+    it('calling indexOf(comma) should return the position of the comma', function(){
+        var input = ' ,';
+        var value = input.indexOf(',');
 
-        expect(toDo).toEqual(1);
+        expect(1).toEqual(value);
     });
 });
 
-describe("Given a string whose content does not contain a given substring", function() {
-    it("should return -1 when calling indexOf() with the substring", function() {
-        var input = "some string not containing our target substring";
-        var searchString = "flowers";
-        var toDo = input.indexOf(searchString);
+describe('Given a string whose content does not contain "flowers"', function() {
+    it('indexOf should indicate that "flowers" is not found.', function() {
+        var input = 'some string not containing our target substring';
+        var searchString = 'flowers';
+        var value = input.indexOf(searchString);
 
-        expect(toDo).toEqual(-1);
+        expect(-1).toEqual(value);
     });
 });
 
-describe("Given a string that contains multiple instances of a given substring", function(){
-   it("should return the index of the first instance of the substring", function(){
-      var input = "dogs cats dogs cats ferrets rabbits dogs";
-      var searchString = "dogs";
-      var toDo = input.indexOf(searchString);
+describe('Given a string that contains multiple instances of a given substring', function(){
+    it('should return the index of the first instance of the substring', function(){
+        var input = 'dogs cats dogs cats ferrets rabbits dogs';
+        var searchString = 'dogs';
+        var value = input.indexOf(searchString);
 
-      expect(toDo).toEqual(0);
-   });
+        expect(0).toEqual(value);
+    });
+});
+
+describe('Given a string which contains two commas', function(){
+    it('we can get the position of the second comma using indexOf().', function(){
+        var input = 'foo,bar,baz';
+        var value = input.indexOf(',', 4);
+
+        expect(7).toEqual(value);
+    }) ;
 });
 
 // string comparisons via >, <
+// NOTE:
+//
+// You might do this for something like sorting an array of strings
 describe('Given two strings', function(){
     it('should be able to compare different strings with same case', function(){
-        var a = 'a';
-        var b = 'b';
-        var toDo = a < b;
+        var value = 'abc' < 'bcd';
 
-        expect(toDo).toBe(true);
+        expect(true).toBe(value);
     });
 
     it('should be able to compare two strings which differ only by case', function(){
-        var a = 'a';
-        var bigA = 'A';
-        var toDo = a > bigA;
+        var value = 'abc' > 'ABC';
 
-        expect(toDo).toBe(true);
+        expect(true).toBe(value);
     });
 });
 
