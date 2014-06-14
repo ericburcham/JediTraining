@@ -1,15 +1,15 @@
 // The value NaN indicates that a value is not a legal number.
 describe('Illegal math operations evaluate to NaN', function(){
     it('Divide by zero', function(){
-        var dividend = 1 / 0;
-        var value = dividend == NaN;
+        var dividend = 1 / 'abc';
+        var value = isNaN(dividend);
 
         expect(true).toBe(value);
     });
 
     it('Square root of a negative', function(){
         var sqrt = Math.sqrt(-4);
-        var value = sqrt == NaN;
+        var value = isNaN(sqrt);
 
         expect(true).toBe(value);
     });
