@@ -1,6 +1,6 @@
 // The value NaN indicates that a value is not a legal number.
 describe('Illegal math operations evaluate to NaN', function(){
-    it('Divide by zero', function(){
+    it('Divide a number be a string', function(){
         var dividend = 1 / 'abc';
         var value = isNaN(dividend);
 
@@ -16,23 +16,28 @@ describe('Illegal math operations evaluate to NaN', function(){
 });
 
 describe('NaN is a value that never equals anything.  Ever.', function(){
+    var nan = NaN;
     it('Does not equal a string', function(){
-        var s = '';
-
-        var value = s == NaN;
-        expect(false).toBe(value);
-
-        value = s === NaN;
-        expect(false).toBe(value);
+        expect(false).toBe(nan == 'NaN');
+        expect(false).toBe(nan === 'NaN');
     });
 
-    it('Does not equal a string', function(){
-        var s = '';
-
-        var value = s == NaN;
-        expect(false).toBe(value);
-
-        value = s === NaN;
-        expect(false).toBe(value);
+    it('Does not equal another NaN', function(){
+        expect(false).toBe(nan == NaN);
+        expect(false).toBe(nan === NaN);
     });
+
+    it('Does not equal undefined', function(){
+        expect(false).toBe(nan == undefined);
+        expect(false).toBe(nan === undefined);
+    });
+
+    it('Does not even equal itself, seriously!!!!', function(){
+        expect(false).toBe(nan == nan);
+        expect(false).toBe(nan === nan);
+    });
+
+    it('can only ever, like seriously EVER, be checked by using the method isNaN()', function(){
+        expect(true).toBe(isNaN(nan));
+    })
 });

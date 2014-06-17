@@ -1,5 +1,3 @@
-var toDo = 'abc123';
-
 describe('Given a string literal stored in a variable', function () {
     it('it should have a type of String', function () {
         var a = 'a';
