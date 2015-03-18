@@ -36,7 +36,7 @@ describe('Given a string and an integer', function(){
 });
 
 describe('Given two distinct string values', function() {
-    it('should combine the two, in order, when they are added with the binary + operator', function () {
+    it('should combine the two, in order, when they are added with the + operator', function () {
         var foo = 'foo';
         var bar = 'bar';
 
@@ -149,13 +149,3 @@ describe('Given two strings', function(){
 // string pattern searches via regex
 
 // string substitution via regex
-
-
-// string
-// number
-// function
-// object
-// array
-// bool
-// Null
-// undefined
